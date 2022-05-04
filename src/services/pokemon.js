@@ -12,10 +12,8 @@ export const findPokemons = async ({ page, limit }) => {
 
 export const findOnePokemon = async (name) => {
   try {
-    const response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${name}`,
-    ).then((res) => res.json());
-    return response;
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    return response.json();
   } catch (error) {
     console.error(error);
   }
