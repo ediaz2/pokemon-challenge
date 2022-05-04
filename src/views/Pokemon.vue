@@ -67,8 +67,9 @@
         this.page += 1;
       },
       async searchPokemon() {
+        const cleanSearch = this.search.trim().toLowerCase();
         const error = await this.findOnePokemon({
-          name: this.search,
+          name: cleanSearch,
           isFavorite: false,
         });
         if (error) {
