@@ -62,6 +62,7 @@ Escogi este framework por que permite un rapido maquetado y una facilidad de per
 
 - Cree los componentes en la carpeta `src/components/pokemons`, que corresponden al nombre de la ruta.
 - Estos componentes tendran logica de negocio, ya que se van a utilizar en la aplicación.
+- El texto a copiar al portapapeles cambie de separados por coma a uno por linea, siento que es mas facil de leer.
 
 ## 5. Testing
 
