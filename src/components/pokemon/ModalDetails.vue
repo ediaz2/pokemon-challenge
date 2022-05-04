@@ -29,7 +29,11 @@
     methods: {
       capitalize,
       async copyClipboard(payload) {
-        const text = Object.values(payload).join(', ');
+        // TODO: Disable text separated by comma
+        // const text = Object.values(payload).join(', ');
+        const text = Object.entries(payload)
+          .map(([key, value]) => `${capitalize(key)}: ${value}`)
+          .join('\n');
         await navigator.clipboard.writeText(text);
         this.$snotify.success('Copy attributes', null, {
           timeout: 2000,
