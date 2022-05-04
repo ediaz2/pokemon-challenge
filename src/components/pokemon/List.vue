@@ -32,10 +32,10 @@
     <li
       v-for="pokemon in pokemons"
       :key="pokemon.name"
-      class="px-4 py-3 bg-white rounded-lg flex justify-between items-center shadow-md shadow-gray-200/40 hover:translate-y-0.5">
-      <span @click="showDetail(pokemon)" class="cursor-pointer">{{
-        capitalize(pokemon.name)
-      }}</span>
+      class="px-4 bg-white rounded-lg flex justify-between items-center shadow-md shadow-gray-200/40 hover:translate-y-0.5">
+      <div class="w-full py-3 mr-2 cursor-pointer" @click="showDetail(pokemon)">
+        <span>{{ capitalize(pokemon.name) }}</span>
+      </div>
       <base-button-icon
         @click="
           toggleFavoritePokemon({
