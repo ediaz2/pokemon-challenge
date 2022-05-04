@@ -61,6 +61,10 @@ export const pokemonStore = {
       }
     },
 
+    resetStatePokemos({ commit }) {
+      commit(types.SET_POKEMONS, []);
+    },
+
     async findOnePokemon({ commit }, { name, isFavorite }) {
       try {
         const response = await findOnePokemon(name);

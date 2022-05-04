@@ -36,7 +36,7 @@
 </script>
 
 <template>
-  <form class="flex items-center mb-6" role="search" @submit.prevent="onSearch">
+  <form class="flex items-center" role="search" @submit.prevent="onSearch">
     <label for="search" class="sr-only">Search</label>
     <div class="relative w-full">
       <div
