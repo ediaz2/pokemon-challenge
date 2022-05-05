@@ -25,7 +25,7 @@
     data: () => ({
       loading: false,
       page: 1,
-      isModalOpen: false,
+      modalDetails: {},
       search: '',
       isFilterFavorite: false,
       error: null,
@@ -60,7 +60,7 @@
       capitalize,
       async showDetail({ name, isFavorite }) {
         await this.findOnePokemon({ name, isFavorite });
-        this.isModalOpen = true;
+        this.$refs.modalDetails.open();
       },
       async findPokemonsPagination() {
         await this.findPokemons({ page: this.page });
@@ -76,7 +76,7 @@
           this.search = '';
           this.error = error;
         } else {
-          this.isModalOpen = true;
+          this.$refs.modalDetails.open();
         }
       },
     },
@@ -114,7 +114,7 @@
           <base-observer @intersect="findPokemonsPagination"></base-observer>
         </base-container>
         <pokemon-modal-details
-          v-model="isModalOpen"
+          ref="modalDetails"
           :pokemon="currentPokemon"
           @on-toggle="toggleFavoritePokemon"></pokemon-modal-details>
         <pokemon-footer v-model="isFilterFavorite"> </pokemon-footer>

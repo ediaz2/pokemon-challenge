@@ -14,10 +14,6 @@
       BaseModal,
     },
     props: {
-      value: {
-        type: Boolean,
-        required: true,
-      },
       pokemon: {
         type: Object,
         required: true,
@@ -41,6 +37,7 @@
           closeOnClick: false,
           pauseOnHover: true,
         });
+        this.close();
       },
       async toggleFavoritePokemon() {
         await this.$emit('on-toggle', {
@@ -48,13 +45,11 @@
           isFavorite: !this.pokemon.isFavorite,
         });
       },
-    },
-    watch: {
-      isModalOpen(value) {
-        this.$emit('input', value);
+      open() {
+        this.isModalOpen = true;
       },
-      value(value) {
-        this.isModalOpen = value;
+      close() {
+        this.isModalOpen = false;
       },
     },
   };
@@ -81,12 +76,14 @@
         </li>
       </ul>
       <div class="mt-2 flex justify-between">
-        <base-button @click="copyClipboard(pokemon.attributes)">
+        <base-button
+          @click="copyClipboard(pokemon.attributes)"
+          class="transition ease-out duration-200 transform hover:translate-y-0.5">
           Share to my friends
         </base-button>
         <base-button-icon @click="toggleFavoritePokemon">
           <icon-star
-            class="w-5 h-5"
+            class="w-5 h-5 transition ease-out duration-200 transform hover:scale-110"
             :class="{
               'fill-gray': !pokemon.isFavorite,
               'fill-yellow': pokemon.isFavorite,

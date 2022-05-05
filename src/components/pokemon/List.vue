@@ -44,7 +44,7 @@
           })
         ">
         <icon-star
-          class="w-5 h-5"
+          class="w-5 h-5 transition ease-out duration-200 transform hover:translate-y-0.5"
           :class="{
             'fill-gray': !pokemon.isFavorite,
             'fill-yellow': pokemon.isFavorite,
